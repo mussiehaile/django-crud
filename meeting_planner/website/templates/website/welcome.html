@@ -6,11 +6,20 @@
   <body>
     <p>This is a simple paragraph.</p>
     <p>Here is a website link: <a href="https://www.example.com">Example Website</a>.</p>
-    <p>
-        {{message}}
-    <p>
     
-        <p> thair are currently {{num_meetings}} meetings in the dattabase.
-            <p>
+    
+      <h2>Meetings</h2>
+      <ul>
+        {%for meeting in meetings %}
+          <li>
+            <a href ="{% url 'detail' meeting.id %}">
+              {{meeting.title}}
+            </a>
+          </li>
+        {% endfor %}
+        </ul>
+      
+    <a href = "{% url 'rooms' %}" >room_list</a>
+       
   </body>
 </html>
